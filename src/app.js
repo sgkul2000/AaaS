@@ -5,7 +5,6 @@ const cors = require("cors")
 const BodyParser = require("body-parser")
 const InitDB = require("./db/index")
 const setPath = require("./middlewares/path")
-const auth = require("./middlewares/auth")
 
 // environment variables setup
 require("dotenv").config()
