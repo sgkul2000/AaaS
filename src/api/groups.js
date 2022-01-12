@@ -2,7 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const router = express.Router()
 
-const Group = require("../db/models/permission")
+const Group = require("../db/models/group")
 // const User = require("../db/models/user")
 
 router.get("/groups", (req, res, next) => {

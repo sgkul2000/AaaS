@@ -71,7 +71,8 @@ router.post("/tokens", (req, res, next) => {
 				return next(new Error("User does not exist"))
 			} else {
 				if (!Bcrypt.compareSync(req.body.password, user.password)) {
-					return next("Incorrect password")
+					res.status(400)
+					return next(new Error("Incorrect password"))
 				} else {
 					let tokenId = new mongoose.Types.ObjectId()
 					const token = jwt.sign(

@@ -2,7 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const router = express.Router()
 
-const Role = require("../db/models/permission")
+const Role = require("../db/models/role")
 // const User = require("../db/models/user")
 
 router.get("/roles", (req, res, next) => {
