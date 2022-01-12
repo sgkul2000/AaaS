@@ -19,7 +19,7 @@ const RoleSchema = new mongoose.Schema(
 	},
 	{
 		timestamps: true,
-		collection: "Roles",
+		collection: "roles",
 		autoIndex: true,
 	}
 )

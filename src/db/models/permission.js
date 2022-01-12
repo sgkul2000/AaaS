@@ -12,7 +12,7 @@ const PermissionSchema = new mongoose.Schema(
 	},
 	{
 		timestamps: true,
-		collection: "Permissions",
+		collection: "permissions",
 		autoIndex: true,
 	}
 )
