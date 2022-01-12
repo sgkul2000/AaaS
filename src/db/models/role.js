@@ -12,14 +12,14 @@ const RoleSchema = new mongoose.Schema(
 		permissions: [
 			{
 				type: mongoose.Schema.ObjectId,
-				ref: "permission",
+				ref: "Permission",
 				required: true,
 			},
 		],
 	},
 	{
 		timestamps: true,
-		collection: "roles",
+		collection: "Roles",
 		autoIndex: true,
 	}
 )

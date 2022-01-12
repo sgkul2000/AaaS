@@ -19,7 +19,7 @@ const GroupSchema = new mongoose.Schema(
 		roles: [
 			{
 				type: mongoose.Schema.ObjectId,
-				ref: "role",
+				ref: "Role",
 			},
 		],
 	},

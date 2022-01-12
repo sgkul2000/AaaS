@@ -109,6 +109,18 @@ router.post("/tokens", (req, res, next) => {
 	// res.status(201).send();
 })
 
+router.get("/tokens", (req, res, next) => {
+	Token.find()
+		.populate("user")
+		.then((tokens) => {
+			return res.send({
+				success: true,
+				data: tokens,
+			})
+		})
+		.catch(next)
+})
+
 router.delete("/tokens", (req, res, next) => {
 	Token.findByIdAndRemove(req.tokenData.id)
 		.then(() => {
