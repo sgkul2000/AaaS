@@ -9,13 +9,13 @@ const authMiddleware = require("../middlewares/auth")
 
 const router = express.Router()
 
+router.use(authMiddleware.Authz)
+
 router.use("/", auth)
 router.use("/", users)
 router.use("/", permission)
 router.use("/", role)
 router.use("/", group)
-
-router.use(authMiddleware.Authz)
 
 router.get("/", (req, res) => {
 	res.json({

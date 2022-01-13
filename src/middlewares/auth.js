@@ -34,6 +34,7 @@ function Authz(req, res, next) {
 
 				// Check permissions
 				let suffix = permissionsMap[req.originalUrl]
+				console.log(suffix)
 				if (typeof suffix === "undefined") {
 					return next()
 				} else if (suffix === "ignore") return next()
