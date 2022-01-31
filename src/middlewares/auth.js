@@ -17,6 +17,10 @@ function methodConverter(method) {
 /* eslint-disable no-unused-vars */
 function Authz(req, res, next) {
 	/* eslint-enable no-unused-vars */
+	let suffix = permissionsMap[req.originalUrl]
+	if (typeof suffix === "undefined") {
+		return next()
+	} else if (suffix === "ignore") return next()
 	// Gather the jwt access token from the request header
 	const authHeader = req.headers["authorization"]
 	const token = authHeader ? authHeader.split(" ")[1] || authHeader : null
@@ -33,11 +37,6 @@ function Authz(req, res, next) {
 				// return next() // pass the execution off to whatever request the client intended
 
 				// Check permissions
-				let suffix = permissionsMap[req.originalUrl]
-				console.log(suffix)
-				if (typeof suffix === "undefined") {
-					return next()
-				} else if (suffix === "ignore") return next()
 				let permissionRequired = `${methodConverter(req.method)}_${
 					permissionsMap[req.originalUrl]
 				}`
